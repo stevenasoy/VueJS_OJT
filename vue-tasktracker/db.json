@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "text": "hey august",
-      "day": "August 20",
-      "reminder": true,
-      "id": 3
-    },
-    {
       "text": "SERVICE AWARDEE",
       "day": "March 23",
       "reminder": false,
