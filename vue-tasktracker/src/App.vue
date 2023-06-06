@@ -1,10 +1,17 @@
 <template>
   <div class="container">
-    <Header  title="Task tracker" />
-    <AddTask @add-task="AddTask" />
+    <Header
+    @toggle-add-task="toggleAddTask"
+    title="Task tracker"
+    :showAddTask="showAddTask" />
+    <div v-show="showAddTask">
+      <AddTask @add-task="AddTask" />
+    </div>
+   
     <Tasks
     @toggle-reminder="toggleReminder"
-    @delete-task="deleteTask" :tasks="tasks" />
+    @delete-task="deleteTask"
+    :tasks="tasks" />
   </div>
   
 </template>
@@ -23,10 +30,14 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
   },
   methods: {
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask
+    },
     AddTask(task) {
       this.tasks = [...this.tasks, task]
     },
@@ -39,28 +50,16 @@ export default {
       this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder}
       : task)
     },
+    async fetchTasks() {
+      const res = await fetch ('http://localhost:5000/tasks')
+
+      const data = await res.json()
+
+      return data
+    }
   },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Doctors Appointment',
-        day: 'March 1 at 2:30pm',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Meeting at School',
-        day: 'March 3 at 1:30pm',
-        reminder: false,
-      },
-      {
-        id: 3,
-        text: 'Dinner out',
-        day: 'March 7 at 6:30pm',
-        reminder: true,
-      },
-    ]
+  async created() {
+    this.tasks = await this.fetchTasks()
   }
 }
 </script>
