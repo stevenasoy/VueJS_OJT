@@ -3,7 +3,7 @@
     {
       "text": "SERVICE AWARDEE",
       "day": "March 23",
-      "reminder": false,
+      "reminder": true,
       "id": 4
     },
     {
@@ -11,6 +11,12 @@
       "day": "March 20",
       "reminder": true,
       "id": 5
+    },
+    {
+      "text": "SERVICE AWARDEE",
+      "day": "sdv",
+      "reminder": false,
+      "id": 6
     }
   ]
 }
