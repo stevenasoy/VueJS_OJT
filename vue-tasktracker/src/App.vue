@@ -60,7 +60,7 @@ export default {
   },
   async created() {
     this.tasks = await this.fetchTasks()
-  }
+  },
 }
 </script>
 
