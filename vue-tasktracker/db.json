@@ -9,13 +9,13 @@
     {
       "text": "SERVICE AWARDEE",
       "day": "March 23",
-      "reminder": true,
+      "reminder": false,
       "id": 4
     },
     {
       "text": "ALYANSA",
       "day": "March 20",
-      "reminder": false,
+      "reminder": true,
       "id": 5
     }
   ]
