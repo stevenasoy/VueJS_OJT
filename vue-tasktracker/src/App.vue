@@ -1,10 +1,17 @@
 <template>
   <div class="container">
-    <Header  title="Task tracker" />
-    <AddTask @add-task="AddTask" />
+    <Header
+    @toggle-add-task="toggleAddTask"
+    title="Task tracker"
+    :showAddTask="showAddTask" />
+    <div v-show="showAddTask">
+      <AddTask @add-task="AddTask" />
+    </div>
+   
     <Tasks
     @toggle-reminder="toggleReminder"
-    @delete-task="deleteTask" :tasks="tasks" />
+    @delete-task="deleteTask"
+    :tasks="tasks" />
   </div>
   
 </template>
@@ -23,10 +30,14 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
   },
   methods: {
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask
+    },
     AddTask(task) {
       this.tasks = [...this.tasks, task]
     },
