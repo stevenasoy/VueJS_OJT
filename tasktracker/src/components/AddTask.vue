@@ -1,22 +1,22 @@
 <template>
-  <form @submit="onSubmit"
-  class="add-form">
+    <form @submit="onSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
-      <input type="text" v-model="text" name="text" placeholder="Add Task"
-        />
+      <input v-model="text" type="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
       <label>Day & Time</label>
-      <input type="text" v-model="day" name="day" placeholder="Add Day & Time"
+      <input
+        type="text"
+        v-model="day"
+        name="day"
+        placeholder="Add Day & Time"
       />
     </div>
     <div class="form-control form-control-check">
       <label>Set Reminder</label>
-      <input type="checkbox" v-model="reminder" name="reminder"
-      />
+      <input v-model="reminder" type="checkbox" name="reminder" />
     </div>
-
     <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
 </template>
@@ -28,12 +28,12 @@
             return {
                 text: '',
                 day: '',
-                reminder: false,
+                reminder: false
             }
         },
         methods: {
             onSubmit(e) {
-                e.preventDefault()
+                e.preventDefault ()
 
                 if(!this.text) {
                     alert('Please add a task')
@@ -41,10 +41,10 @@
                 }
 
                 const newTask = {
-                    //id: Math.floor(Math.random() * 100000),
+                    //id: Math.floor(Math.random() * 10000),
                     text: this.text,
                     day: this.day,
-                    reminder: this.reminder,
+                    reminder: this.reminder
                 }
 
                 this.$emit('add-task', newTask)
@@ -52,9 +52,8 @@
                 this.text = ''
                 this.day = ''
                 this.reminder = false
-            },
-
-        },
+            }
+        }
     }
 </script>
 
