@@ -11,6 +11,12 @@
       "day": "March 20",
       "reminder": true,
       "id": 8306
+    },
+    {
+      "text": "SERVICE AWARDEE",
+      "day": "sdv",
+      "reminder": false,
+      "id": 8307
     }
   ]
 }
