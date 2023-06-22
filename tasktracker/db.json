@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "id": "3",
-      "text": "Grocery Shopping",
-      "day": "June 11, 2023 at 6:00 pm",
-      "reminder": false
-    },
-    {
       "text": "ALYANSA",
       "day": "March 20",
       "reminder": true,
